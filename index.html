@@ -1,96 +1,579 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Johns Maliyekal Portfolio</title>
-<style>
-body{
-font-family: Arial;
-margin:40px;
-background:#f5f5f5;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Johns Maliyekal | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.container{
-background:white;
-padding:40px;
-border-radius:10px;
-max-width:900px;
-margin:auto;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
 
-img{
-width:150px;
-border-radius:50%;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-h1{
-color:#333;
-}
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
 
-.section{
-margin-top:30px;
-}
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #111827 55%, #052e2b 100%);
+      padding: 70px 0 50px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-</style>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.28);
+      color: #86efac;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: 1.05;
+      margin: 0 0 18px;
+      color: white;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: 0 0 24px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #0f172a;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+      color: white;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 24px;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .stat-card span {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .profile-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 24px;
+    }
+
+    .profile-inner {
+      background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .profile-photo {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 20px;
+      border: 3px solid rgba(255,255,255,0.12);
+    }
+
+    .profile-title {
+      color: white;
+      font-size: 26px;
+      margin: 8px 0 10px;
+    }
+
+    .profile-text {
+      color: #cbd5e1;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      display: grid;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .info-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: #dbeafe;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #86efac;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 38px;
+      color: white;
+      margin: 0 0 18px;
+    }
+
+    .about-grid,
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .glass-card p,
+    .glass-card li,
+    .section-text {
+      color: #cbd5e1;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .skill-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #e5e7eb;
+      font-size: 14px;
+    }
+
+    .tool-grid,
+    .project-grid,
+    .cert-grid,
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .tool-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cert-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 26px;
+    }
+
+    .tool-box,
+    .project-card,
+    .cert-box,
+    .contact-box,
+    .experience-card,
+    .edu-box,
+    .lang-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .project-card h3,
+    .experience-card h3 {
+      margin-top: 0;
+      color: white;
+    }
+
+    .experience-wrap {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .role-meta {
+      color: #86efac;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .role-period {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .contact-section {
+      background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    .contact-section p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    .subtle {
+      color: #94a3b8;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .two-col,
+      .project-grid,
+      .contact-grid,
+      .tool-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .hero {
+        padding-top: 50px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">Project Management • Client Success • QA • Solar Energy Solutions</div>
+        <h1>Johns Maliyekal</h1>
+        <p>
+          I help teams deliver reliable outcomes through structured project execution,
+          stakeholder coordination, workflow improvement, and quality-focused operations.
+        </p>
 
-<div class="container">
+        <div class="button-row">
+          <a class="btn btn-primary" href="#experience">View Experience</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
 
-<img src="Headshot.png">
+        <div class="stats">
+          <div class="stat-card">
+            <strong>3+ Years</strong>
+            <span>Project, operations, and QA experience</span>
+          </div>
+          <div class="stat-card">
+            <strong>Cross-Functional</strong>
+            <span>Client, engineering, and internal coordination</span>
+          </div>
+          <div class="stat-card">
+            <strong>Solar + Ops</strong>
+            <span>Technical delivery and workflow improvement</span>
+          </div>
+        </div>
+      </div>
 
-<h1>Johns Maliyekal</h1>
+      <div class="profile-card">
+        <div class="profile-inner">
+          <img class="profile-photo" src="Headshot.png" alt="Johns Maliyekal headshot" />
+          <div class="profile-title">Professional Snapshot</div>
+          <div class="profile-text">
+            Project management professional with experience spanning customer success,
+            solar engineering delivery, workflow optimization, and quality assurance.
+          </div>
 
-<p>
-Project Management | Client Success | Solar Energy Solutions
-</p>
+          <div class="profile-info">
+            <div class="info-box">Bangalore, India</div>
+            <div class="info-box">johnsmaliyekal999@gmail.com</div>
+            <div class="info-box">+91 98471 16683</div>
+            <div class="info-box">LinkedIn: johns_maliyekal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<div class="section">
-<h2>About Me</h2>
-<p>
-Project management professional with experience in solar project delivery,
-customer success operations, and quality assurance. Skilled in coordinating
-cross-functional teams and delivering reliable project outcomes.
-</p>
-</div>
+  <section>
+    <div class="container about-grid">
+      <div>
+        <div class="section-title">About</div>
+        <h2>A practical operator with technical depth</h2>
+      </div>
+      <div class="glass-card">
+        <p>
+          I bring together structured execution, stakeholder communication, and process discipline.
+          My background includes customer support workflow design, solar project coordination,
+          quality assurance, and operations improvement. I am most effective in roles where I can
+          turn requirements into clear actions, keep teams aligned, and improve delivery reliability.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<div class="section">
-<h2>Experience</h2>
+  <section>
+    <div class="container two-col">
+      <div class="glass-card">
+        <div class="section-title">Core Skills</div>
+        <div class="skills">
+          <span class="skill-pill">Project Management</span>
+          <span class="skill-pill">Client Success</span>
+          <span class="skill-pill">Workflow Design</span>
+          <span class="skill-pill">Quality Assurance</span>
+          <span class="skill-pill">Solar Project Delivery</span>
+          <span class="skill-pill">Stakeholder Coordination</span>
+          <span class="skill-pill">Process Improvement</span>
+          <span class="skill-pill">Vendor Management</span>
+          <span class="skill-pill">Requirements Analysis</span>
+          <span class="skill-pill">Cross-functional Execution</span>
+        </div>
+      </div>
 
-<p><b>Customer Success Project Manager</b><br>
-JBPB Offshore Pvt Ltd | 2025 – Present</p>
+      <div class="glass-card">
+        <div class="section-title">Tools & Methods</div>
+        <div class="tool-grid">
+          <div class="tool-box">Zoho CRM</div>
+          <div class="tool-box">Asana</div>
+          <div class="tool-box">Engineering Design Tools</div>
+          <div class="tool-box">SolarEdge</div>
+          <div class="tool-box">Six Sigma Basics</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p><b>Project Management Engineer</b><br>
-Illumine International | 2023 – 2025</p>
+  <section id="experience">
+    <div class="container">
+      <div class="section-title">Experience</div>
+      <h2>Professional journey</h2>
+      <p class="section-text">
+        Roles across customer success, project delivery, solar engineering, quality assurance,
+        and operations have shaped a strong foundation for end-to-end coordination.
+      </p>
 
-<p><b>QA Analyst / Project Coordinator</b><br>
-Illumine International | 2022 – 2023</p>
+      <div class="experience-wrap">
+        <div class="experience-card">
+          <h3>Customer Success Project Manager</h3>
+          <div class="role-meta">JBPB Offshore Private Limited</div>
+          <div class="role-period">Aug 2025 – Present • Bangalore, India</div>
+          <ul>
+            <li>Designed and implemented end-to-end workflows for customer support operations.</li>
+            <li>Improved ticket handling consistency through classification, prioritization, and reporting structures.</li>
+            <li>Trained support agents on workflows, best practices, and quality standards.</li>
+            <li>Monitored KPIs including response quality, resolution flow, and operational performance.</li>
+          </ul>
+        </div>
 
-</div>
+        <div class="experience-card">
+          <h3>Project Management Engineer - I</h3>
+          <div class="role-meta">Illumine International Inc</div>
+          <div class="role-period">Aug 2023 – Jul 2025 • Chennai, India</div>
+          <ul>
+            <li>Led solar system design including layout planning and equipment selection.</li>
+            <li>Coordinated with clients, regulatory bodies, and internal teams.</li>
+            <li>Prepared engineering drawings and specifications for permitting and execution.</li>
+            <li>Contributed technical inputs in project meetings to improve delivery efficiency.</li>
+          </ul>
+        </div>
 
-<div class="section">
-<h2>Skills</h2>
+        <div class="experience-card">
+          <h3>Project Coordinator / Quality Assurance Analyst</h3>
+          <div class="role-meta">Illumine International Inc</div>
+          <div class="role-period">Jul 2022 – Aug 2023 • Chennai, India</div>
+          <ul>
+            <li>Managed project workflows to keep client deliverables moving smoothly.</li>
+            <li>Acted as a liaison between clients and internal teams for requirements and updates.</li>
+            <li>Implemented QA processes aligned with client and regulatory standards.</li>
+          </ul>
+        </div>
 
-<ul>
-<li>Project Management</li>
-<li>Client Success</li>
-<li>Solar Project Design</li>
-<li>Workflow Optimization</li>
-<li>Quality Assurance</li>
-</ul>
+        <div class="experience-card">
+          <h3>Assistant Production Engineer</h3>
+          <div class="role-meta">Emerging Technologies Pvt. Ltd.</div>
+          <div class="role-period">Jan 2022 – Jun 2022 • Thrissur, India</div>
+          <ul>
+            <li>Oversaw plant operations and resolved production line challenges.</li>
+            <li>Improved assembly line efficiency through process streamlining.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section>
+    <div class="container">
+      <div class="section-title">Selected Work</div>
+      <h2>Projects and value delivered</h2>
 
-<div class="section">
-<h2>Contact</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Customer Support Workflow Optimization</h3>
+          <p>
+            Built structured support workflows for intake, categorization, prioritization,
+            assignment, resolution, and closure to improve service consistency and visibility.
+          </p>
+        </div>
 
-<p>Email: johnsmaliyekal999@gmail.com</p>
-<p>Phone: +91 98471 16683</p>
-<p>LinkedIn: johns_maliyekal</p>
+        <div class="project-card">
+          <h3>Solar Project Design to Execution</h3>
+          <p>
+            Managed project inputs from requirements gathering through system layout,
+            equipment selection, drawings/specs, permit support, and execution handoff.
+          </p>
+        </div>
 
-</div>
+        <div class="project-card">
+          <h3>Mechanical Seal Failure Study</h3>
+          <p>
+            Analyzed causes of seal failures in pumping operations and proposed corrective
+            measures to improve reliability and operational efficiency.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section>
+    <div class="container two-col">
+      <div class="glass-card">
+        <div class="section-title">Certifications</div>
+        <div class="cert-grid">
+          <div class="cert-box">Talking to AI: Prompt Engineering for Project Managers — PMI</div>
+          <div class="cert-box">One Million Prompters — Dubai Future Foundation</div>
+          <div class="cert-box">Six Sigma White Belt — CSSC</div>
+          <div class="cert-box">Energy Automation + Eco/EcoLinx — Sonnen, Inc.</div>
+          <div class="cert-box">SolarEdge Installer</div>
+          <div class="cert-box">SolarEdge Expert Training</div>
+        </div>
+      </div>
 
+      <div class="glass-card">
+        <div class="section-title">Education & Languages</div>
+        <div class="edu-box">
+          <h3>B.Tech in Mechanical Engineering</h3>
+          <p>Jyotji Engineering College</p>
+          <p class="subtle">2016 – 2020 • CGPA: 7.37</p>
+        </div>
+        <div style="height: 14px;"></div>
+        <div class="lang-box">English — Proficient</div>
+        <div style="height: 10px;"></div>
+        <div class="lang-box">Malayalam — Native</div>
+        <div style="height: 10px;"></div>
+        <div class="lang-box">Tamil — Intermediate</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-title">Contact</div>
+      <h2>Let’s build reliable project outcomes</h2>
+      <p>
+        Open to project management, customer success, operations, quality assurance,
+        and renewable energy opportunities.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-box">johnsmaliyekal999@gmail.com</div>
+        <div class="contact-box">+91 98471 16683</div>
+        <div class="contact-box">LinkedIn: johns_maliyekal</div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
