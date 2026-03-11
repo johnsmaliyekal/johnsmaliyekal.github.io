@@ -397,6 +397,25 @@ html {
   color: #86efac;
   font-weight: 700;
 }
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+#backToTop:hover {
+  background: #059669;
+}
   </style>
 </head>
 <body>
@@ -754,5 +773,25 @@ function setActiveLink() {
 window.addEventListener("scroll", setActiveLink);
 window.addEventListener("load", setActiveLink);
 </script>
+  
+<button id="backToTop">↑</button>
+<script>
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTop.style.display = "block";
+  } else {
+    backToTop.style.display = "none";
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+</script> 
 </body>
 </html>
