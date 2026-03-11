@@ -725,25 +725,32 @@ html {
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-links a");
 
-window.addEventListener("scroll", () => {
+function setActiveLink() {
   let current = "";
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.clientHeight;
+    const sectionTop = section.offsetTop - 140;
+    const sectionHeight = section.offsetHeight;
 
-    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
       current = section.getAttribute("id");
     }
   });
 
-navLinks.forEach(link => {
-  link.classList.remove("active");
-  if (current && link.getAttribute("href") === "#" + current) {
-    link.classList.add("active");
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+    current = "contact";
   }
-});
-});
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (current && link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", setActiveLink);
+window.addEventListener("load", setActiveLink);
 </script>
 </body>
 </html>
