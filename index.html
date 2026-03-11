@@ -845,5 +845,22 @@ backToTop.addEventListener("click", () => {
   });
 });
 </script> 
+ <script>
+const fadeSections = document.querySelectorAll(".fade-in-section");
+
+function revealSections() {
+  fadeSections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (sectionTop < windowHeight - 100) {
+      section.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealSections);
+window.addEventListener("load", revealSections);
+</script> 
 </body>
 </html>
