@@ -737,12 +737,12 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href").includes(current)) {
-      link.classList.add("active");
-    }
-  });
+navLinks.forEach(link => {
+  link.classList.remove("active");
+  if (current && link.getAttribute("href") === "#" + current) {
+    link.classList.add("active");
+  }
+});
 });
 </script>
 </body>
