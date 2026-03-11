@@ -388,13 +388,12 @@ html {
 .nav-links a {
   color: #cbd5e1;
   font-size: 14px;
-  transition: all 0.25s ease;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
 }
 
-.nav-links a:hover {
+.nav-links a.active {
   color: #86efac;
-  text-decoration: underline;
-  text-underline-offset: 6px;
+  font-weight: 700;
 }
   </style>
 </head>
@@ -722,5 +721,29 @@ html {
 </div>
     </div>
   </section>
+<script>
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.clientHeight;
+
+    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href").includes(current)) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
 </body>
 </html>
